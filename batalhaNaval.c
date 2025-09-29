@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define SIZE 10
+
 // Desafio Batalha Naval - MateCheck
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
@@ -9,16 +11,10 @@ int main() {
    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
-   int tabuleiro[10][10];
+   int tabuleiro[SIZE][SIZE] = {0};
 
-   for (int i = 0; i < 10; i++) {
-      for (int j = 0; j < 10; j++) {
-         tabuleiro[i][j] = 0;
-      }
-   }
-
-   for (int i = 0; i < 10; i++) {
-      for (int j = 0; j < 10; j++) {
+   for (int i = 0; i < SIZE; i++) {
+      for (int j = 0; j < SIZE; j++) {
          printf("%d ", tabuleiro[i][j]);
       }
       printf("\n");
