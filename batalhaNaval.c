@@ -7,22 +7,30 @@
 // Siga os comentários para implementar cada parte do desafio.
 void setNavioHorizontal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
    int linhaValida = linha >= 0 && linha < SIZE;
-   int colunaValida = coluna >= 0 && coluna < SIZE;
+   int colunaValida = coluna >= 0 && coluna < 8;
 
    if (linhaValida && colunaValida) {
       for (int j = coluna; j < (coluna + 3); j++) {
-         tabuleiro[linha][j] = 3;
+         if (tabuleiro[linha][j] == 3) {
+            break;
+         } else {
+            tabuleiro[linha][j] = 3;
+         }
       }
    }
 }
 
 void setNavioVertical(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
-   int linhaValida = linha >= 0 && linha < SIZE;
+   int linhaValida = linha >= 0 && linha < 8;
    int colunaValida = coluna >= 0 && coluna < SIZE;
    
    if (linhaValida && colunaValida) {
       for (int i = linha; i < (linha + 3); i++) {
-         tabuleiro[i][coluna] = 3;
+         if (tabuleiro[i][coluna] == 3) {
+            break;
+         } else {
+            tabuleiro[i][coluna] = 3;
+         }
       }
    }
 }
@@ -34,8 +42,8 @@ int main() {
    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
    int tabuleiro[SIZE][SIZE] = {0};
 
-   setNavioHorizontal(tabuleiro, 0, 5);
-   setNavioVertical(tabuleiro, 1, 9);
+   setNavioVertical(tabuleiro, 0, 0);
+   setNavioHorizontal(tabuleiro, 0, 6);
 
    for (int i = 0; i < SIZE; i++) {
       for (int j = 0; j < SIZE; j++) {
