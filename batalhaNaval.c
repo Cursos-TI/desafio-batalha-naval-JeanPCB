@@ -5,6 +5,17 @@
 // Desafio Batalha Naval - MateCheck
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
+void setNavioHorizontal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
+   for (int j = coluna; j < (coluna + 3); j++) {
+      tabuleiro[linha][j] = 3;
+   }
+}
+
+void setNavioVertical(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
+   for (int i = linha; i < (linha + 3); i++) {
+      tabuleiro[i][coluna] = 3;
+   }
+}
 
 int main() {
    // Nível Novato - Posicionamento dos Navios
@@ -12,6 +23,9 @@ int main() {
    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
    int tabuleiro[SIZE][SIZE] = {0};
+
+   setNavioHorizontal(tabuleiro, 0, 2);
+   setNavioVertical(tabuleiro, 6, 9);
 
    for (int i = 0; i < SIZE; i++) {
       for (int j = 0; j < SIZE; j++) {
