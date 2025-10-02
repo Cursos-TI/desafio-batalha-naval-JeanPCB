@@ -7,7 +7,7 @@
 // Siga os comentários para implementar cada parte do desafio.
 void setNavioHorizontal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
    int linhaValida = linha >= 0 && linha < SIZE;
-   int colunaValida = coluna >= 0 && coluna < 8;
+   int colunaValida = coluna >= 0 && coluna < SIZE - 2;
 
    // Checa sobreposicao dos navios
    if (linhaValida && colunaValida) {
@@ -22,7 +22,7 @@ void setNavioHorizontal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
 }
 
 void setNavioVertical(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
-   int linhaValida = linha >= 0 && linha < 8;
+   int linhaValida = linha >= 0 && linha < SIZE - 2;
    int colunaValida = coluna >= 0 && coluna < SIZE;
    
    // Checa sobreposicao dos navios
@@ -36,6 +36,11 @@ void setNavioVertical(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
       }
    }
 }
+
+// void setNavioDiagonal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
+//    int linhaValida = linha >= 0 && linha < SIZE - 2;
+//    int colunaValida = coluna >= 0 && coluna < SIZE - 2;
+// }
 
 int main() {
    // Nível Novato - Posicionamento dos Navios
