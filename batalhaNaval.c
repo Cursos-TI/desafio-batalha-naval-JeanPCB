@@ -11,7 +11,7 @@ void setNavioHorizontal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
 
    // Checa sobreposicao dos navios
    if (linhaValida && colunaValida) {
-      for (int j = coluna; j < (coluna + 3); j++) {
+      for (int j = coluna; j < coluna + 3; j++) {
          if (tabuleiro[linha][j] == 3) {
             break;
          } else {
@@ -27,7 +27,7 @@ void setNavioVertical(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
    
    // Checa sobreposicao dos navios
    if (linhaValida && colunaValida) {
-      for (int i = linha; i < (linha + 3); i++) {
+      for (int i = linha; i < linha + 3; i++) {
          if (tabuleiro[i][coluna] == 3) {
             break;
          } else {
@@ -37,10 +37,21 @@ void setNavioVertical(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
    }
 }
 
-// void setNavioDiagonal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
-//    int linhaValida = linha >= 0 && linha < SIZE - 2;
-//    int colunaValida = coluna >= 0 && coluna < SIZE - 2;
-// }
+void setNavioDiagonal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
+   int linhaValida = linha >= 0 && linha < SIZE - 2;
+   int colunaValida = coluna >= 0 && coluna < SIZE - 2;
+
+   // Checa sobreposicao dos navios
+   if (linhaValida && colunaValida) {
+      for (int i = linha; i < linha + 3; i++) {
+         if(tabuleiro[i][coluna] == 3) {
+            break;
+         } else {
+            tabuleiro[i][coluna++] = 3;
+         }
+      }
+   }
+}
 
 int main() {
    // Nível Novato - Posicionamento dos Navios
@@ -51,6 +62,8 @@ int main() {
 
    setNavioVertical(tabuleiro, 0, 0);
    setNavioHorizontal(tabuleiro, 0, 6);
+   setNavioDiagonal(tabuleiro, 0, 2);
+   setNavioDiagonal(tabuleiro, 1, 4);
 
    for (int i = 0; i < SIZE; i++) {
       for (int j = 0; j < SIZE; j++) {
