@@ -53,21 +53,49 @@ void setNavioDiagonal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
    }
 }
 
+void habilidadeCone(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
+   for (int i = linha; i < linha + 3; i++) {
+      for (int j = coluna; j < coluna + 5; j++) {
+         if (i == linha && j == coluna + 2) {
+            tabuleiro[i][j] = 1;
+         } else if (i == linha + 1 && (j != coluna && j != coluna + 4)) {
+            tabuleiro[i][j] = 1;
+         } else if (i == linha + 2) {
+            tabuleiro[i][j] = 1;
+         } else {
+            tabuleiro[i][j] = 0;
+         }
+      }
+   }
+}
+
 int main() {
    // Nível Novato - Posicionamento dos Navios
    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
    int tabuleiro[SIZE][SIZE] = {0};
+   int matrizCone[SIZE][SIZE] = {0};
 
    setNavioVertical(tabuleiro, 0, 0);
    setNavioHorizontal(tabuleiro, 0, 6);
    setNavioDiagonal(tabuleiro, 0, 2);
    setNavioDiagonal(tabuleiro, 1, 4);
 
+   printf("TABULEIRO:\n");
    for (int i = 0; i < SIZE; i++) {
       for (int j = 0; j < SIZE; j++) {
          printf("%d ", tabuleiro[i][j]);
+      }
+      printf("\n");
+   }
+
+   habilidadeCone(matrizCone, 2, 2);
+
+   printf("\nHABILIDADE CONE:\n");
+   for (int i = 0; i < SIZE; i++) {
+      for (int j = 0; j < SIZE; j++) {
+         printf("%d ", matrizCone[i][j]);
       }
       printf("\n");
    }
