@@ -56,6 +56,8 @@ void setNavioDiagonal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
 void habilidadeCone(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
    for (int i = linha; i < linha + 3; i++) {
       for (int j = coluna; j < coluna + 5; j++) {
+         if (tabuleiro[i][j] == 1) break;
+
          if (i == linha && j == coluna + 2) {
             tabuleiro[i][j] = 1;
          } else if (i == linha + 1 && (j != coluna && j != coluna + 4)) {
@@ -72,6 +74,8 @@ void habilidadeCone(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
 void habilidadeOctaedro(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
    for (int i = linha; i < linha + 3; i++) {
       for (int j = coluna; j < coluna + 5; j++) {
+         if (tabuleiro[i][j] == 1) break;
+
          if (i == linha && j == coluna + 2) {
             tabuleiro[i][j] = 1;
          } else if (i == linha + 1 && (j != coluna && j != coluna + 4)) {
@@ -88,6 +92,8 @@ void habilidadeOctaedro(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
 void habilidadeCruz(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
    for (int i = linha; i < linha + 3; i++) {
       for (int j = coluna; j < coluna + 5; j++) {
+         if (tabuleiro[i][j] == 1) break;
+
          if (i == linha && j == coluna + 2) {
             tabuleiro[i][j] = 1;
          } else if (i == linha + 1) {
@@ -146,6 +152,18 @@ int main() {
    for (int i = 0; i < SIZE; i++) {
       for (int j = 0; j < SIZE; j++) {
          printf("%d ", matrizCruz[i][j]);
+      }
+      printf("\n");
+   }
+
+   habilidadeCone(tabuleiro, 3, 1);
+   habilidadeOctaedro(tabuleiro, 4, 2);
+   habilidadeCruz(tabuleiro, 5, 8);
+
+   printf("TABULEIRO COM HABILIDADES:\n");
+   for (int i = 0; i < SIZE; i++) {
+      for (int j = 0; j < SIZE; j++) {
+         printf("%d ", tabuleiro[i][j]);
       }
       printf("\n");
    }
