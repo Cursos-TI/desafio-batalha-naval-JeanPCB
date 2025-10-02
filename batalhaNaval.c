@@ -54,54 +54,69 @@ void setNavioDiagonal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
 }
 
 void habilidadeCone(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
-   for (int i = linha; i < linha + 3; i++) {
-      for (int j = coluna; j < coluna + 5; j++) {
-         if (tabuleiro[i][j] == 1) break;
+   int linhaValida = linha >= 0 && linha < SIZE - 2;
+   int colunaValida = coluna >= 0 && coluna < SIZE - 4;
 
-         if (i == linha && j == coluna + 2) {
-            tabuleiro[i][j] = 1;
-         } else if (i == linha + 1 && (j != coluna && j != coluna + 4)) {
-            tabuleiro[i][j] = 1;
-         } else if (i == linha + 2) {
-            tabuleiro[i][j] = 1;
-         } else {
-            tabuleiro[i][j] = 0;
+   if (linhaValida && colunaValida) {
+      for (int i = linha; i < linha + 3; i++) {
+         for (int j = coluna; j < coluna + 5; j++) {
+            if (tabuleiro[i][j] == 1) break;
+   
+            if (i == linha && j == coluna + 2) {
+               tabuleiro[i][j] = 1;
+            } else if (i == linha + 1 && (j != coluna && j != coluna + 4)) {
+               tabuleiro[i][j] = 1;
+            } else if (i == linha + 2) {
+               tabuleiro[i][j] = 1;
+            } else {
+               tabuleiro[i][j] = 0;
+            }
          }
       }
    }
 }
 
 void habilidadeOctaedro(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
-   for (int i = linha; i < linha + 3; i++) {
-      for (int j = coluna; j < coluna + 5; j++) {
-         if (tabuleiro[i][j] == 1) break;
+   int linhaValida = linha >= 0 && linha < SIZE - 2;
+   int colunaValida = coluna >= 0 && coluna < SIZE - 4;
 
-         if (i == linha && j == coluna + 2) {
-            tabuleiro[i][j] = 1;
-         } else if (i == linha + 1 && (j != coluna && j != coluna + 4)) {
-            tabuleiro[i][j] = 1;
-         } else if (i == linha + 2 && j == coluna + 2) {
-            tabuleiro[i][j] = 1;
-         } else {
-            tabuleiro[i][j] = 0;
+   if (linhaValida && colunaValida) {
+      for (int i = linha; i < linha + 3; i++) {
+         for (int j = coluna; j < coluna + 5; j++) {
+            if (tabuleiro[i][j] == 1) break;
+   
+            if (i == linha && j == coluna + 2) {
+               tabuleiro[i][j] = 1;
+            } else if (i == linha + 1 && (j != coluna && j != coluna + 4)) {
+               tabuleiro[i][j] = 1;
+            } else if (i == linha + 2 && j == coluna + 2) {
+               tabuleiro[i][j] = 1;
+            } else {
+               tabuleiro[i][j] = 0;
+            }
          }
       }
    }
 }
 
 void habilidadeCruz(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
-   for (int i = linha; i < linha + 3; i++) {
-      for (int j = coluna; j < coluna + 5; j++) {
-         if (tabuleiro[i][j] == 1) break;
+   int linhaValida = linha >= 0 && linha < SIZE - 2;
+   int colunaValida = coluna >= 0 && coluna < SIZE - 4;
 
-         if (i == linha && j == coluna + 2) {
-            tabuleiro[i][j] = 1;
-         } else if (i == linha + 1) {
-            tabuleiro[i][j] = 1;
-         } else if (i == linha + 2 && j == coluna + 2) {
-            tabuleiro[i][j] = 1;
-         } else {
-            tabuleiro[i][j] = 0;
+   if (linhaValida && colunaValida) {
+      for (int i = linha; i < linha + 3; i++) {
+         for (int j = coluna; j < coluna + 5; j++) {
+            if (tabuleiro[i][j] == 1) break;
+   
+            if (i == linha && j == coluna + 2) {
+               tabuleiro[i][j] = 1;
+            } else if (i == linha + 1) {
+               tabuleiro[i][j] = 1;
+            } else if (i == linha + 2 && j == coluna + 2) {
+               tabuleiro[i][j] = 1;
+            } else {
+               tabuleiro[i][j] = 0;
+            }
          }
       }
    }
