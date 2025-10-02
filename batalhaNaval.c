@@ -9,6 +9,7 @@ void setNavioHorizontal(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
    int linhaValida = linha >= 0 && linha < SIZE;
    int colunaValida = coluna >= 0 && coluna < 8;
 
+   // Checa sobreposicao dos navios
    if (linhaValida && colunaValida) {
       for (int j = coluna; j < (coluna + 3); j++) {
          if (tabuleiro[linha][j] == 3) {
@@ -24,6 +25,7 @@ void setNavioVertical(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
    int linhaValida = linha >= 0 && linha < 8;
    int colunaValida = coluna >= 0 && coluna < SIZE;
    
+   // Checa sobreposicao dos navios
    if (linhaValida && colunaValida) {
       for (int i = linha; i < (linha + 3); i++) {
          if (tabuleiro[i][coluna] == 3) {
