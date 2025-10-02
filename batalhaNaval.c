@@ -69,9 +69,26 @@ void habilidadeCone(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
    }
 }
 
+void habilidadeOctaedro(int tabuleiro[SIZE][SIZE], int linha, int coluna) {
+   for (int i = linha; i < linha + 3; i++) {
+      for (int j = coluna; j < coluna + 5; j++) {
+         if (i == linha && j == coluna + 2) {
+            tabuleiro[i][j] = 1;
+         } else if (i == linha + 1 && (j != coluna && j != coluna + 4)) {
+            tabuleiro[i][j] = 1;
+         } else if (i == linha + 2 && j == coluna + 2) {
+            tabuleiro[i][j] = 1;
+         } else {
+            tabuleiro[i][j] = 0;
+         }
+      }
+   }
+}
+
 int main() {
    int tabuleiro[SIZE][SIZE] = {0};
    int matrizCone[SIZE][SIZE] = {0};
+   int matrizOcta[SIZE][SIZE] = {0};
 
    setNavioVertical(tabuleiro, 0, 0);
    setNavioHorizontal(tabuleiro, 0, 6);
@@ -92,6 +109,16 @@ int main() {
    for (int i = 0; i < SIZE; i++) {
       for (int j = 0; j < SIZE; j++) {
          printf("%d ", matrizCone[i][j]);
+      }
+      printf("\n");
+   }
+
+   habilidadeOctaedro(matrizOcta, 2, 2);
+
+   printf("\nHABILIDADE OCTAEDRO:\n");
+   for (int i = 0; i < SIZE; i++) {
+      for (int j = 0; j < SIZE; j++) {
+         printf("%d ", matrizOcta[i][j]);
       }
       printf("\n");
    }
